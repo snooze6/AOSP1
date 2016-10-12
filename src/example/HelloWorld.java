@@ -14,9 +14,17 @@ public class HelloWorld {
     System.out.println(result);
     return result;
   }
+
+  @WebMethod
+  public String hello() {
+    System.out.println("Hallo world!");
+    return "Hallo world!";
+  }
   public static void main(String[] argv) {
     Object implementor = new HelloWorld ();
     String address = "http://localhost:9000/HelloWorld";
+    System.out.println("Listening in on port");
+    System.out.println(" - http://localhost:9000/HelloWorld");
     Endpoint.publish(address, implementor);
   }
 }

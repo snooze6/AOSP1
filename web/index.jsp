@@ -11,6 +11,13 @@
     <title>$Title$</title>
   </head>
   <body>
+  <%
+    for (int i = 0; i < 5; i++){
+      %>
+        <p>Hello</p>
+      <%
+    }
+  %>
   $END$
   </body>
 </html>

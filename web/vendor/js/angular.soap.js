@@ -18,7 +18,7 @@ angular.module('angularSoap', [])
 				} else {
 					deferred.resolve(e);
 				}
-			};
+			}
 			
 			SOAPClient.invoke(url, action, soapParams, true, soapCallback);
 

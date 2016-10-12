@@ -29,7 +29,7 @@ aos.config(['$routeProvider', function($routeProvider) {
 
 aos.factory('Fact_Calculadora', [ '$soap', function ($soap) {
     return {
-        hello: function (name) {
+        HelloWorld: function (name) {
             return $soap.post({
                 url: 'http://localhost:9000/HelloWorld',
                 action: 'HelloWorld',
@@ -42,6 +42,9 @@ aos.factory('Fact_Calculadora', [ '$soap', function ($soap) {
                 // </Body>\
                 // </Envelope>'
             })
+        },
+        Hello: function(){
+            return $soap.post("services/HelloWorld","hello");
         }
 
     }
@@ -53,7 +56,7 @@ aos.controller('Ctrl_Main',['$scope', 'Fact_Calculadora', function($scope, facto
     
     $scope.send = function (name) {
         console.log('Sending '+name);
-        factory.hello(name).then(function (response){
+        factory.Hello().then(function (response){
             console.log('----------------------------');
             console.log(response)
         });
