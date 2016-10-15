@@ -10,20 +10,20 @@ var aos = angular.module('AOS', [
 
 aos.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-    when('/', {
+    when('/projects', {
         templateUrl: 'templates/projects.html',
         controller: 'Ctrl_Main'
     }).
     when('/about', {
         templateUrl: 'templates/about.html',
-        controller: ''
+        controller: 'Ctrl_About'
     }).
-    when('/contact', {
-        templateUrl: 'templates/contact.html',
-        controller: ''
+    when('/projects/calculator', {
+        templateUrl: 'templates/calculator.html',
+        controller: 'Ctrl_Calc'
     }).
     otherwise({
-        redirectTo: '/'
+        redirectTo: '/projects'
     });
 }]);
 
@@ -50,9 +50,8 @@ aos.factory('Fact_Calculadora', [ '$soap', function ($soap) {
     }
 }]);
 
-aos.controller('Ctrl_Main',['$scope', 'Fact_Calculadora', function($scope, factory){
-    $scope.title = 'Projects page';
-    console.log($scope.title);
+aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function($scope, $rootScope, factory){
+    $rootScope.section = 'projects';
     
     $scope.send = function (name) {
         console.log('Sending '+name);
@@ -61,4 +60,12 @@ aos.controller('Ctrl_Main',['$scope', 'Fact_Calculadora', function($scope, facto
             console.log(response)
         });
     }
+}]);
+
+aos.controller('Ctrl_Main', ['$rootScope', function ($scope) {
+    $scope.section = 'projects'
+}]);
+
+aos.controller('Ctrl_About', ['$rootScope', function ($scope) {
+    $scope.section = 'about'
 }]);
