@@ -57,7 +57,9 @@
             <legend>History</legend>
             <div id="calc-panel">
                 <div id="calc-history">
-                    <ol id="calc-history-list"></ol>
+                    <ol id="calc-history-list">
+                        <li ng-repeat="item in history" style="color: #000000;">Operation: {{item.num1}} {{item.operation}} {{item.num2}} = {{item.result}}</li>
+                    </ol>
                 </div>
             </div>
         </div>

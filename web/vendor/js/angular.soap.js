@@ -10,7 +10,7 @@ angular.module('angularSoap', [])
 			for(var param in params){
 				soapParams.add(param, params[param]);
 			}
-			
+
 			//Create Callback
 			var soapCallback = function(e){
 				if(e.constructor.toString().indexOf("function Error()") != -1){
@@ -18,8 +18,8 @@ angular.module('angularSoap', [])
 				} else {
 					deferred.resolve(e);
 				}
-			}
-			
+			};
+
 			SOAPClient.invoke(url, action, soapParams, true, soapCallback);
 
 			return deferred.promise;

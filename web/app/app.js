@@ -35,14 +35,20 @@ aos.factory('Fact_Calculadora', [ '$soap', function ($soap) {
             return $soap.post(baseUrl+"services/HelloWorld","hello");
         },
         suma: function(a,b){
-            console.log(a+'+'+b+'='+(a+b));
+            // console.log(a+'+'+b+'='+(a+b));
             return $soap.post(baseUrl+"services/Calculator", "sum", {arg0:a, arg1:b});
-            // return $soap.post("org.arman.services/Calculator", "sum", {a:a, b:b});
-            // return $soap.post({
-            //     url: "org.arman.services/Calculator",
-            //     action: "sum",
-            //     params: {a:a, b:b}
-            // });
+        },
+        resta: function(a,b){
+            // console.log(a+'-'+b+'='+(a+b));
+            return $soap.post(baseUrl+"services/Calculator", "les", {arg0:a, arg1:b});
+        },
+        multiplicacion: function(a,b){
+            // console.log(a+'*'+b+'='+(a+b));
+            return $soap.post(baseUrl+"services/Calculator", "prod", {arg0:a, arg1:b});
+        },
+        division: function(a,b){
+            // console.log(a+'/'+b+'='+(a+b));
+            return $soap.post(baseUrl+"services/Calculator", "div", {arg0:a, arg1:b});
         }
     }
 }]);
@@ -56,14 +62,28 @@ aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function(
     
     function send () {
         console.log('Sending '+$scope.data.num1+$scope.data.operation+$scope.data.num2);
+
+        function displayandsave(data) {
+            $scope.result = data;
+            $scope.history.push({
+                num1: $scope.data.num1,
+                num2: $scope.data.num2,
+                operation: $scope.data.operation,
+                result: data
+            });
+        }
         switch ($scope.data.operation) {
             case '+':
-                factory.suma(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(function (data) {
-                    console.log('Result: '+data)
-                });
-                factory.hello().then(function (data) {
-                    console.log('Hello: '+data)
-                });
+                factory.suma(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
+                break;
+            case '-':
+                factory.resta(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
+                break;
+            case '*':
+                factory.multiplicacion(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
+                break;
+            case '/':
+                factory.division(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
                 break;
             default:
                 console.log('Invalid operation')
@@ -72,6 +92,8 @@ aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function(
 
     $scope.pulse = function (string) {
         // console.log('Pulsed: '+string);
+        if ($scope.result!=0 && string!='CE')
+            $scope.pulse('CE');
 
         if (!isNaN(parseInt(string))) {
             if ($scope.data.operation === '') {
@@ -121,6 +143,7 @@ aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function(
                     $scope.data.operation = '';
                     $scope.data.num1 = '0';
                     $scope.data.num2 = '';
+                    $scope.result = '0';
                     break;
                 case 'C':
                     if ($scope.data.operation == ''){

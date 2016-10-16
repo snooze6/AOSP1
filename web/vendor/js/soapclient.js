@@ -26,7 +26,7 @@ function SOAPClientParameters()
                 case "number":
                 case "boolean":
                 case "object":
-                    xml += "<" + p + ">" + SOAPClientParameters._serialize(_pl[p]) + "</" + p + ">";
+                    xml += "<" + p + " xmlns=\"\" >" + SOAPClientParameters._serialize(_pl[p]) + "</" + p + ">";
                     break;
                 default:
                     break;
@@ -133,6 +133,7 @@ SOAPClient._loadWsdl = function(url, method, parameters, async, callback)
 		return SOAPClient._sendSoapRequest(url, method, parameters, async, callback, wsdl);
 	// get wsdl
 	var xmlHttp = SOAPClient._getXmlHttp();
+
 	if (SOAPClient.username && SOAPClient.password){
 		xmlHttp.open("GET", url + "?wsdl", async, SOAPClient.username, SOAPClient.password);
 		// Some WS implementations (i.e. BEA WebLogic Server 10.0 JAX-WS) don't support Challenge/Response HTTP BASIC, so we send authorization headers in the first request
@@ -165,14 +166,15 @@ SOAPClient._sendSoapRequest = function(url, method, parameters, async, callback,
 	// build SOAP request
 	var sr = 
 				"<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-				"<soap:Envelope " +
-				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
-				"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" " +
-				"xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
-				"<soap:Body>" +
+				"<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
+				"<Body>" +
 				"<" + method + " xmlns=\"" + ns + "\">" +
-				parameters.toXml() +
-				"</" + method + "></soap:Body></soap:Envelope>";
+				parameters.toXml()+
+				"</" + method + ">"+
+				"</Body>"+
+				"</Envelope>";
+
+	// console.log(sr);
 	// send request
 	var xmlHttp = SOAPClient._getXmlHttp();
 	if (SOAPClient.username && SOAPClient.password){
