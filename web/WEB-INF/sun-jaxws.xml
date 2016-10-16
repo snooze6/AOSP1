@@ -4,6 +4,10 @@
 
     <endpoint
             name='HelloWorld'
-            implementation='example.HelloWorld'
+            implementation='org.arman.services.HelloWorld'
             url-pattern='/services/HelloWorld'/>
+    <endpoint
+            name='Calculator'
+            implementation='org.arman.services.Calculator'
+            url-pattern='/services/Calculator'/>
 </endpoints>

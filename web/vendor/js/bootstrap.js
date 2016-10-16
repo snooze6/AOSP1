@@ -201,7 +201,7 @@ if (typeof jQuery === 'undefined') {
   Button.prototype.setState = function (state) {
     var d    = 'disabled'
     var $el  = this.$element
-    var val  = $el.is('input') ? 'val' : 'html'
+    var val  = $el.is('num1') ? 'val' : 'html'
     var data = $el.data()
 
     state += 'Text'
@@ -227,7 +227,7 @@ if (typeof jQuery === 'undefined') {
     var $parent = this.$element.closest('[data-toggle="buttons"]')
 
     if ($parent.length) {
-      var $input = this.$element.find('input')
+      var $input = this.$element.find('num1')
       if ($input.prop('type') == 'radio') {
         if ($input.prop('checked')) changed = false
         $parent.find('.active').removeClass('active')
@@ -283,12 +283,12 @@ if (typeof jQuery === 'undefined') {
     .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
       var $btn = $(e.target).closest('.btn')
       Plugin.call($btn, 'toggle')
-      if (!($(e.target).is('input[type="radio"], input[type="checkbox"]'))) {
+      if (!($(e.target).is('num1[type="radio"], num1[type="checkbox"]'))) {
         // Prevent double click on radios, and the double selections (so cancellation) on checkboxes
         e.preventDefault()
         // The target component still receive the focus
-        if ($btn.is('input,button')) $btn.trigger('focus')
-        else $btn.find('input:visible,button:visible').first().trigger('focus')
+        if ($btn.is('num1,button')) $btn.trigger('focus')
+        else $btn.find('num1:visible,button:visible').first().trigger('focus')
       }
     })
     .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
