@@ -95,7 +95,7 @@ aos.factory('Fact_Calculadora', [ '$soap', function ($soap) {
 aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function($scope, $rootScope, factory){
     $rootScope.section = 'projects';
 
-    $scope.data = {num1: 0, num2:'', operation: '', numbers:['1','2','3','4']};
+    $scope.data = {num1: 0, num2:'', operation: '', numbers:[]};
     $scope.operation = $scope.data.num1 + ' ' + $scope.data.operation + ' ' + $scope.data.num2;
     $scope.result = 0;
     $scope.history = [];
@@ -249,7 +249,7 @@ aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function(
                     break;
                 case '=':
                     if ($scope.data.operation != '') {
-                        if ((['MIN', 'AVG', 'MAX'].indexOf($scope.data.operation)) > +0) {
+                        if ((['MIN', 'AVG', 'MAX'].indexOf($scope.data.operation)) >= 0) {
                             if ($scope.data.num1 != +0)
                                 $scope.data.numbers.push($scope.data.num1);
                             $scope.data.num1 = 0;
@@ -259,7 +259,7 @@ aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function(
                     }
                     break;
                 case ',':
-                    if ((['MIN', 'AVG', 'MAX'].indexOf($scope.data.operation)) > +0) {
+                    if ((['MIN', 'AVG', 'MAX'].indexOf($scope.data.operation)) >= 0) {
                         $scope.data.num2 = true;
                         $scope.data.numbers.push($scope.data.num1);
                         $scope.data.num1 = 0
