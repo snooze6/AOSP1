@@ -14,7 +14,7 @@ function SOAPClientParameters()
 	{
 		_pl[name] = value; 
 		return this; 
-	}
+	};
 	this.toXml = function()
 	{
 		var xml = "";
@@ -26,7 +26,13 @@ function SOAPClientParameters()
                 case "number":
                 case "boolean":
                 case "object":
-                    xml += "<" + p + " xmlns=\"\" >" + SOAPClientParameters._serialize(_pl[p]) + "</" + p + ">";
+                	if (_pl[p].constructor === Array){
+						for (var j in _pl[p]){
+							xml += "<" + p + " xmlns=\"\" >" + _pl[p][j] + "</" + p + ">";
+						}
+					} else {
+						xml += "<" + p + " xmlns=\"\" >" + SOAPClientParameters._serialize(_pl[p]) + "</" + p + ">";
+					}
                     break;
                 default:
                     break;
