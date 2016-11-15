@@ -82,7 +82,8 @@ public class Dummy {
                     new User("admin", "admin"),
                     new User("user", "user"),
                     new User("root", "toor"),
-                    new User("armando", "armando")
+                    new User("armando", "armando"),
+                    new User("juan","juan")
             )
     );
 

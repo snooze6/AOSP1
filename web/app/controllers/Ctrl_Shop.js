@@ -16,7 +16,7 @@ aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', function($scope,
 
     $scope.search = function(){
         if ($scope.searchdata.str){
-            console.log('Searching for '+$scope.searchdata.str);
+            // console.log('Searching for '+$scope.searchdata.str);
             factory.searchItem($scope.searchdata.str).then(function (data, err) {
                 if (data){
                     if (Array.isArray(data))
@@ -33,7 +33,7 @@ aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', function($scope,
 }]);
 
 aos.controller('Ctrl_Shop_Item',['$scope','$rootScope', '$routeParams', 'Fact_Shop', function($scope, $rootScope, $routeParams, factory){
-    console.log('Hello from Item '+$routeParams.pId);
+    // console.log('Hello from Item '+$routeParams.pId);
 
     var item = parseInt($routeParams.pId);
     factory.getItem(item).then(function (data, err) {

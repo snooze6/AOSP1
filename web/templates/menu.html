@@ -15,9 +15,9 @@
                 <li ng-class="{'active':section === 'about'}"><a href="#about">About</a></li>
             </ul>
             <ul class="nav navbar-nav" style="float: right">
-                <li ng-switch="user==null">
+                <li ng-switch="user.token==null">
                     <a ng-switch-when="true" ng-class="{'active':section === 'auth'}" href="#/auth">Login</a>
-                    <a ng-switch-when="false">Username</a>
+                    <a ng-switch-when="false" ng-click="logout()">{{user.username}}</a>
                     <a ng-switch-default>Dunno</a>
                 </li>
             </ul>

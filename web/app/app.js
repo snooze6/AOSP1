@@ -12,7 +12,7 @@ aos.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
     when('/projects', {
         templateUrl: 'templates/projects.html',
-        controller: 'Ctrl_Main'
+        controller: ''
     }).
     when('/about', {
         templateUrl: 'templates/about.html',

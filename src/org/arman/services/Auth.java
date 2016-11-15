@@ -1,13 +1,11 @@
 package org.arman.services;
 
-import org.arman.data.model.Dummy;
-import org.arman.data.model.Item;
 import org.arman.data.model.User;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import javax.xml.ws.Endpoint;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static org.arman.data.model.Dummy.users;
 
@@ -17,30 +15,46 @@ import static org.arman.data.model.Dummy.users;
 @WebService()
 public class Auth {
 
-    public boolean isAlready(User j){
+    private String getToken(User j){
         for (User u: users){
-            if (u.token == j.token){
-                return true;
+            if (Objects.equals(u.username, j.username) && Objects.equals(u.password, j.password)){
+                return u.token;
             }
         }
-        return false;
+        return null;
     }
 
+    private User getUser(String username, String password){
+        for (User u: users){
+            if (Objects.equals(u.username, username) && Objects.equals(u.password, password)){
+                return u;
+            }
+        }
+        return null;
+    }
+
+//    @WebMethod
+//    public ArrayList<User> getUsers(){
+//        return users;
+//    }
+
     @WebMethod
-    public int login(String username, String password){
+    public  String login(String username, String password){
         User a = new User(username, password);
-        if (isAlready(a)){
-            return a.token;
+        String token = getToken(a);
+        if (token != null){
+            return token;
         } else {
-            return 0;
+            return "";
         }
     }
 
     @WebMethod
-    public int register(String username, String password){
+    public String register(String username, String password){
         User a = new User(username, password);
-        if (isAlready(a)){
-            return 0;
+        String token = getToken(a);
+        if (token != null){
+            return "";
         } else {
             users.add(a);
             return a.token;
@@ -48,15 +62,12 @@ public class Auth {
     }
 
     @WebMethod
-    public boolean valid(int token){
+    public boolean valid(String token){
         for (User u: users){
-            if (u.token == token){
+            if (Objects.equals(u.token, token)){
                 return true;
             }
         }
         return false;
     }
-
-
-
 }

@@ -3,8 +3,14 @@
  */
 var aos = angular.module('AOS');
 
-aos.controller('Ctrl_Main', ['$rootScope', function ($scope) {
-    $scope.section = 'projects';
+aos.controller('Ctrl_Main', ['$rootScope', function ($rootScope) {
+    $rootScope.section = 'projects';
 
-    $scope.user = null
+    $rootScope.user = {
+        username: '',
+        password: '',
+        token: null
+    };
+
+    console.log('Hello main')
 }]);

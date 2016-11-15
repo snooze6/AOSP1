@@ -8,15 +8,14 @@ var baseUrl = '';
 // var baseUrl = 'http://localhost:8080/';
 aos.factory('Fact_Auth', [ '$soap', function ($soap) {
     return {
-        getItems: function () {
-            return $soap.post(baseUrl+"services/Shop", "getItems");
+        login: function (username, password) {
+            return $soap.post(baseUrl+"services/Auth", "login", {arg0: username, arg1: password});
         },
-        getItem: function (id) {
-            return $soap.post(baseUrl+"services/Shop", "getItemId", {arg0: id});
+        register: function (username, password) {
+            return $soap.post(baseUrl+"services/Auth", "register", {arg0: username, arg1: password});
         },
-        searchItem: function (autor) {
-            console.log('Autor: '+autor);
-            return $soap.post(baseUrl+"services/Shop", "getItemAutor", {arg0: autor});
+        valid: function (token) {
+            return $soap.post(baseUrl+"services/Auth", "valid", {arg0: token});
         }
     }
 }]);
