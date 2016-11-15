@@ -10,4 +10,8 @@
             name='Calculator'
             implementation='org.arman.services.Calculator'
             url-pattern='/services/Calculator'/>
+    <endpoint
+            name='Shop'
+            implementation='org.arman.services.Shop'
+            url-pattern='/services/Shop'/>
 </endpoints>

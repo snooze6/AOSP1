@@ -26,6 +26,10 @@ aos.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'templates/textanalyzer.html',
         controller: 'Ctrl_Text'
     }).
+    when('/projects/shop', {
+        templateUrl: 'templates/shop.html',
+        controller: 'Ctrl_Shop'
+    }).
     otherwise({
         redirectTo: '/projects'
     });
