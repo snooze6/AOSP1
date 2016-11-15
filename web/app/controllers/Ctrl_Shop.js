@@ -3,6 +3,10 @@
  */
 var aos = angular.module('AOS');
 
-aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Calculadora', function($scope, $rootScope, factory){
-    $rootScope.section = 'shop';
+aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', function($scope, $rootScope, factory){
+    $rootScope.section = 'projects';
+
+    console.log('Loaded Ctrl_Shop');
+
+    // $scope.carrito = factory.getItems();
 }]);

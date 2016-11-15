@@ -4,6 +4,8 @@ package org.arman.data.model;
  * Created by Snooze on 15/11/2016.
  */
 public class Dummy {
+
+    // Items of the shop
     public static Item[] items = new Item[]{
         new Item(
                 1,

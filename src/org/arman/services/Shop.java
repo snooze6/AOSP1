@@ -6,6 +6,7 @@ import org.arman.data.model.Item;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
+import java.util.ArrayList;
 
 /**
  * Created by Snooze on 15/11/2016.
@@ -16,6 +17,26 @@ public class Shop {
     @WebMethod
     public Item[] getItems(){
         return Dummy.items;
+    }
+
+    @WebMethod
+    public Item getItemId(int id){
+        if (id < Dummy.items.length) {
+            return Dummy.items[id];
+        } else {
+            return null;
+        }
+    }
+
+    @WebMethod
+    public Item[] getItemAutor(String autor){
+        ArrayList ret = new ArrayList();
+        for (Item i: Dummy.items){
+            if (i.autor.contains(autor)){
+                ret.add(i);
+            }
+        }
+        return (Item[]) ret.toArray();
     }
 
     public static void main(String[] argv) {
