@@ -206,7 +206,6 @@ SOAPClient._sendSoapRequest = function(url, method, parameters, async, callback,
 		return SOAPClient._onSendSoapRequest(method, async, callback, wsdl, xmlHttp);
 };
 
-// TODO Revert
 SOAPClient._onSendSoapRequest = function(method, async, callback, wsdl, req)
 {
 	var o = null;
