@@ -4,9 +4,7 @@ import org.arman.data.model.Resultado;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.logging.Logger;
 
 /**
@@ -92,12 +90,41 @@ public class Utils {
     }
   }
 
+  @WebMethod
+  public Float[] change(Float[] nums, String i, String o) throws Exception {
+    String currencies = "€$";
+    System.out.println(i+" -> "+o);
+    if (currencies.contains(i) && currencies.contains(o)){
+      Float[] ret = new Float[nums.length];
+      if (Objects.equals(i, "$") && Objects.equals(o, "€")){
+        System.out.println("$ -> €");
+        for (int k=0; k<nums.length; k++){
+          ret[k] = 0.93f * nums[k];
+        }
+        return ret;
+      } else if (Objects.equals(o, "$") && Objects.equals(i, "€")){
+        System.out.println("€ -> $");
+        for (int k=0; k<nums.length; k++){
+          ret[k] = 1.07f * nums[k];
+        }
+        return ret;
+      } else {
+        System.out.println("Not changing anything");
+        return nums;
+      }
+    } else {
+      throw new Exception("Unsupported currency");
+    }
+  }
+
+
+
 //  public static void main(String ...args){
 ////    String txt = "Pablito clavó un clavito, ¿qué clavito clavó Pablito?, el clavito que Pablito clavó, era el clavito de Pablito.",
 ////            word = "pablito";
-//    String txt = "caca caca caca",
-//            word = "caca";
-//    Resultado r = stats(txt, word);
+////    String txt = "caca caca caca",
+////            word = "caca";
+////    Resultado r = stats(txt, word);
 //
 ////    System.out.println("Palabras:   "+r.words);
 ////    System.out.println("Caracteres: "+r.chars);
@@ -106,6 +133,17 @@ public class Utils {
 ////    System.out.println("Más usada:  "+r.maxword);
 ////    System.out.println("Frequency:  "+r.frec2+"%");
 ////    System.out.println("        (De "+r.maxword+")");
+//
+//    Float[] j = new Float[]{1.0f, 2.0f, 3.0f, 4.0f};
+//    Float[] f = null;
+//    try {
+//      f = change(j, '€', '$');
+//    } catch (Exception e) {
+//      e.printStackTrace();
+//    }
+//    for (Float k:f ) {
+//      System.out.println(k);
+//    }
 //  }
-
+//
 }

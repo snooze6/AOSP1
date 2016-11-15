@@ -26,6 +26,10 @@ aos.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'templates/textanalyzer.html',
         controller: 'Ctrl_Text'
     }).
+    when('/projects/currency', {
+        templateUrl: 'templates/currency.html',
+        controller: 'Ctrl_Currency'
+    }).
     when('/projects/shop', {
         templateUrl: 'templates/shop.html',
         controller: 'Ctrl_Shop'
