@@ -30,6 +30,10 @@ aos.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'templates/shop.html',
         controller: 'Ctrl_Shop'
     }).
+    when('/projects/shop/products/:pId', {
+        templateUrl: 'templates/item.html',
+        controller: 'Ctrl_Shop_Item'
+    }).
     otherwise({
         redirectTo: '/projects'
     });

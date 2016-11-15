@@ -1,11 +1,21 @@
+<div class="row">
+    <div class="input-group col-md-12">
+        <input type="text" class="  search-query form-control" placeholder="Search" />
+        <span class="input-group-btn">
+            <button class="btn btn-danger" type="button">
+                <span class=" glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="item in carrito">
         <div class="thumbnail">
-            <img src="{{item.image}}" alt="">
+            <img ng-src="{{item.image}}" alt="">
             <div class="caption">
                 <h4 class="pull-right">{{item.price}}</h4>
-                <h4>{{item.name}}</h4>
+                <h4><a href="#/projects/shop/products/{{item.id}}">{{item.name}}</a></h4>
                 <!--<p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>-->
             </div>
             <!--<div class="ratings">-->

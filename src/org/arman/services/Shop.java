@@ -21,11 +21,13 @@ public class Shop {
 
     @WebMethod
     public Item getItemId(int id){
-        if (id < Dummy.items.length) {
-            return Dummy.items[id];
-        } else {
-            return null;
+        System.out.println("getItems: "+id);
+        for (Item i: Dummy.items){
+            if (i.id == id){
+                return i;
+            }
         }
+        return null;
     }
 
     @WebMethod
