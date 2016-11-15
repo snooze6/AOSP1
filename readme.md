@@ -7,18 +7,18 @@ Este war incluirá todos los ejercicios del primer boletín usando para todos el
 |Ítem   |Puntuación   | Completado  |
 |---|---|---|
 |Creación del servicio web que implementa las operaciones de calculadora   |2   |100%   |
-|Creación del servicio web que implementa las operaciones del análisis de texto   |3   |0%   |
+|Creación del servicio web que implementa las operaciones del análisis de texto   |3   |100%   |
 |Implementación del cliente de la calculadora   |2   |100%   |
-|Implementación del cliente del análisis de texto   | 2  | 0%  |
+|Implementación del cliente del análisis de texto   | 2  | 100%  |
 |Encapsulación de las operaciones de los servicios en clases  | 2  | 100%  |
 
 - ~~Operaciones calculdora básicas~~
 - ~~Operaciones calculadora avanzada~~
-- Operaciones análisis de texto:
-    - Número de palabras
-    - Número de caracteres del texto
-    - Frecuencia determinada palabra
-    - Palabra con mayor frecuencia
+- ~~Operaciones análisis de texto:~~
+    - ~~Número de palabras~~
+    - ~~Número de caracteres del texto~~
+    - ~~Frecuencia determinada palabra~~
+    - ~~Palabra con mayor frecuencia~~
     
 ## [1.2] Monedas
 

@@ -36,6 +36,7 @@ public class Utils {
       Integer i = words_count.get(s);
       if(frequency == null) {
         frequency = i;
+        mostFrequent = s;
       }
       if(i > frequency) {
         frequency = i;
@@ -48,17 +49,33 @@ public class Utils {
   @WebMethod
   public Resultado stats(String txt, String word) {
     if (txt != null){
-      String trimmed = txt.toLowerCase().trim();
+      String trimmed = txt.replaceAll("[^\\dA-Za-z ]", "").toLowerCase().trim();
       int words = trimmed.isEmpty() ? 0 : trimmed.split("\\s+").length, chars = txt.length();
 
-      Map<String, Integer> count = count_words(txt.toLowerCase());
-      String maxword = get_most_frequent(count);
+//      System.out.println(txt);
+//
+//      System.out.println("Palabras:   "+words);
+//      System.out.println("Caracteres: "+chars);
 
-      if (!(word != null || !Objects.equals(word, ""))){
+      Map<String, Integer> count = count_words(txt.replaceAll("[^\\dA-Za-z ]", "").toLowerCase());
+//      System.out.println("Keys: "+count.keySet().size());
+      String maxword = get_most_frequent(count);
+//      System.out.println("Más usada:  "+maxword);
+
+      if (word == null || Objects.equals(word, "") || !count.keySet().contains(word)){
         word = maxword;
       }
+//      System.out.println("Palabra:     "+word);
 
       float frec1 = ((float)count.get(maxword)/words)*100, frec2 = ((float)count.get(word)/words)*100;
+
+//      System.out.println("Frequency:  "+frec2+"%");
+//      System.out.println("        (De "+word+")");
+//      System.out.println("        ( # "+count.get(word)+"%");
+//
+//      System.out.println("Frequency:  "+frec1+"%");
+//      System.out.println("        (De "+maxword+")");
+//      System.out.println("        ( # "+count.get(maxword)+"%");
 
       return new Resultado(words, chars, frec2, frec1, maxword);
     } else {
@@ -76,17 +93,19 @@ public class Utils {
   }
 
 //  public static void main(String ...args){
-//    String txt = "Pablito clavó un clavito, ¿qué clavito clavó Pablito?, el clavito que Pablito clavó, era el clavito de Pablito.",
-//            word = "pablito";
+////    String txt = "Pablito clavó un clavito, ¿qué clavito clavó Pablito?, el clavito que Pablito clavó, era el clavito de Pablito.",
+////            word = "pablito";
+//    String txt = "caca caca caca",
+//            word = "caca";
 //    Resultado r = stats(txt, word);
 //
-//    System.out.println("Palabras:   "+r.words);
-//    System.out.println("Caracteres: "+r.chars);
-//    System.out.println("Frequency:  "+r.frec1+"%");
-//    System.out.println("        (De "+word+")");
-//    System.out.println("Más usada:  "+r.maxword);
-//    System.out.println("Frequency:  "+r.frec2+"%");
-//    System.out.println("        (De "+r.maxword+")");
+////    System.out.println("Palabras:   "+r.words);
+////    System.out.println("Caracteres: "+r.chars);
+////    System.out.println("Frequency:  "+r.frec1+"%");
+////    System.out.println("        (De "+word+")");
+////    System.out.println("Más usada:  "+r.maxword);
+////    System.out.println("Frequency:  "+r.frec2+"%");
+////    System.out.println("        (De "+r.maxword+")");
 //  }
 
 }

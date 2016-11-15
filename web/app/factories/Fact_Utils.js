@@ -8,14 +8,12 @@ var baseUrl = '';
 // var baseUrl = 'http://localhost:8080/';
 aos.factory('Fact_Utils', [ '$soap', function ($soap) {
     return {
-        login: function (username, password) {
-            return $soap.post(baseUrl+"services/Auth", "login", {arg0: username, arg1: password});
+        stats: function (txt, word) {
+            return $soap.post(baseUrl+"services/Utils", "stats", {arg0: txt, arg1: word});
         },
-        register: function (username, password) {
-            return $soap.post(baseUrl+"services/Auth", "register", {arg0: username, arg1: password});
-        },
-        valid: function (token) {
-            return $soap.post(baseUrl+"services/Auth", "valid", {arg0: token});
+        length: function (txt) {
+            return $soap.post(baseUrl+"services/Utils", "length", {arg0: txt});
         }
+
     }
 }]);

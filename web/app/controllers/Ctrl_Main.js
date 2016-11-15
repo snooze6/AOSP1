@@ -12,5 +12,4 @@ aos.controller('Ctrl_Main', ['$rootScope', function ($rootScope) {
         token: null
     };
 
-    console.log('Hello main')
 }]);
