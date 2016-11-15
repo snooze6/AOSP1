@@ -13,6 +13,9 @@ aos.factory('Fact_Shop', [ '$soap', function ($soap) {
         },
         getItem: function (id) {
             return $soap.post(baseUrl+"services/Shop", "getItemId", {arg0:id});
+        },
+        searchItem: function (autor) {
+            return $soap.post(baseUrl+"services/Shop", "getItemAutor", {arg0:autor});
         }
     }
 }]);

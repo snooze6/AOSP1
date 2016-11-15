@@ -20,7 +20,6 @@ aos.controller('Ctrl_Shop_Item',['$scope','$rootScope', '$routeParams', 'Fact_Sh
     $rootScope.section = 'projects';
     factory.getItem(item).then(function (data, err) {
         if (data){
-            console.log(data);
             $scope.item = data
         }
     });
