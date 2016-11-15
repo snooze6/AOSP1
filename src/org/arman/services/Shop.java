@@ -21,7 +21,6 @@ public class Shop {
 
     @WebMethod
     public Item getItemId(int id){
-        System.out.println("getItems: "+id);
         for (Item i: Dummy.items){
             if (i.id == id){
                 return i;
@@ -32,13 +31,19 @@ public class Shop {
 
     @WebMethod
     public Item[] getItemAutor(String autor){
-        ArrayList ret = new ArrayList();
+        System.out.println("getItems: "+autor);
+        ArrayList<Item> ret = new ArrayList<>();
         for (Item i: Dummy.items){
-            if (i.autor.contains(autor)){
+            if (i.autor.toLowerCase().contains(autor)){
                 ret.add(i);
             }
         }
-        return (Item[]) ret.toArray();
+        Item[] ret1 = new Item[ret.size()]; int j = 0;
+        for (Item i: ret){
+            ret1[j]=i;
+            j++;
+        }
+        return ret1;
     }
 
     public static void main(String[] argv) {
