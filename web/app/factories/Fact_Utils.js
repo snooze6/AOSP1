@@ -13,6 +13,9 @@ aos.factory('Fact_Utils', [ '$soap', function ($soap) {
         },
         length: function (txt) {
             return $soap.post(baseUrl+"services/Utils", "length", {arg0: txt});
+        },
+        change: function (numbers, i, o) {
+            return $soap.post(baseUrl+"services/Utils", "change", {arg0: numbers, arg1:i, arg2:o});
         }
 
     }

@@ -24,20 +24,22 @@ Este war incluirá todos los ejercicios del primer boletín usando para todos el
 
 |Ítem   |Puntuación   | Completado  |
 |---|---|---|
-|Creación del servicio de conversión de monedas   |2   |0%   |
-|Creación del cliente del servicio de conversión de monedas   |1.5   | 0%  |
-|Creación del cliente de cálculo de caracteres   | 1.5  | 0%  |
+|Creación del servicio de conversión de monedas   |2   |100%   |
+|Creación del cliente del servicio de conversión de monedas   |1.5   | 100%  |
+|Creación del cliente de cálculo de caracteres   | 1.5  | 100%  |
 |Inclusión del servicio de conversión en la tienda virtual   |2   |0%   |
 |Inclusión de la utilidad de comprobación de caracteres en la tienda virtual   |2   |0%   |
 |Implementación del cliente Java de prueba   |1   |?%   |
 
-- Conversión
-    - Entrada: Conjunto de números
-    - Salida: Conjunto de números convertidos
-    - Si la moneda no se maneja -> Excepción
-    - En la cesta y en los productos
-- Usar el servicio que cuenta el número de caracteres de un texto
-    - En la descripción de los objetos (Limitado a 200)
+- ~~Conversión~~
+    - ~~Entrada: Conjunto de números~~
+    - ~~Salida: Conjunto de números convertidos~~
+    - ~~Si la moneda no se maneja -> Excepción~~
+        - (Descomentar /web/app/controllers/Ctrl_Currency línea 29)
+            - Esto usa el Tenge como divisa, el cual no está soportado, peta y se pilla la excepción
+    - ~~En la cesta y en los productos~~
+- ~~Usar el servicio que cuenta el número de caracteres de un texto~~
+    - ~~En la descripción de los objetos (Limitado a 200)~~
     
 En este apartado y dado que no he reutilizado la práctica de DAWA de la tienda me voy a tomar la libertad de efectuar 2 pequeños cambios en el enunciado: dichos cambios no suponen un despropósito en el aprendizaje de SOAP sin embargo me facilitarán la implementación de estas operaciones dado que la tienda será creada de 0. Los cambios son:
 

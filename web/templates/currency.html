@@ -6,16 +6,24 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <form id="login-form" role="form" style="display: block;">
+                                <p>Por favor introduzca los números que quiera cambiar separados por comas</p>
                                 <div class="form-group">
-                                    <textarea ng-model="string" class="form-control" rows="5" id="comment"></textarea>
+                                    <textarea ng-model="numbers" class="form-control" rows="5" id="comment"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" ng-model="word" name="username" id="word" tabindex="1" class="form-control" placeholder="Palabra" value="">
+                                    <div class="row">
+                                        <center>
+                                            <div class="btn-group">
+                                                <label class="btn btn-primary" ng-class="{'active':radioModel === 0}" ng-click="changeModel(0)">$ to €</label>
+                                                <label class="btn btn-primary" ng-class="{'active':radioModel === 1}" ng-click="changeModel(1)">€ to $</label>
+                                            </div>
+                                        </center>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input ng-click="analyze()" type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Analyze">
+                                            <input ng-click="change()" type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Analyze">
                                         </div>
                                     </div>
                                 </div>
@@ -23,14 +31,10 @@
                         </div>
                         <div ng-switch="data==null">
                             <div ng-switch-when="false" class="col-lg-12" style="padding: 1%; margin: 5%">
-                                <b>Texto</b><br>
-                                <p>{{data.string}}</p>
-                                <b>Palabras: </b>{{data.stats.words}}<br>
-                                <b>Caracteres: </b>{{data.stats.chars}}<br>
-                                <b>Frecuencia: </b>{{data.stats.frec1}}<br>
-                                <b>Palabras: </b>{{data.word}}<br>
-                                <b>Frecuencia: </b>{{data.stats.frec2}}<br>
-                                <b>Palabra: </b>{{data.stats.maxword}}<br>
+                                <p ng-repeat="item in data">
+                                    <!--{{item|json}}-->
+                                    {{item.amount1}}{{item.currency1}} -> {{item.amount2}}{{item.currency2}}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -40,10 +44,10 @@
     </div>
 </div>
 
-<p>
-    {{string | json}}
-    {{word | json}}
-    {{data | json}}
-</p>
+<!--<p style="color: #0f0f0f">-->
+    <!--{{radioModel}} <br>-->
+    <!--{{numbers | json}}<br>-->
+    <!--{{data | json}}-->
+<!--</p>-->
 
 <link rel="stylesheet" type="text/css" href="app/auth.css">
