@@ -34,6 +34,10 @@ aos.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'templates/item.html',
         controller: 'Ctrl_Shop_Item'
     }).
+    when('/auth', {
+        templateUrl: 'templates/auth.html',
+        controller: 'Ctrl_Auth'
+    }).
     otherwise({
         redirectTo: '/projects'
     });

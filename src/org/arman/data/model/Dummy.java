@@ -1,5 +1,8 @@
 package org.arman.data.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by Snooze on 15/11/2016.
  */
@@ -73,6 +76,15 @@ public class Dummy {
                 "http://i419.photobucket.com/albums/pp278/joros7/Biografias/nach-scratch.jpg"
         ),
     };
+
+    public static ArrayList<User> users = new ArrayList<User>(
+            Arrays.asList(
+                    new User("admin", "admin"),
+                    new User("user", "user"),
+                    new User("root", "toor"),
+                    new User("armando", "armando")
+            )
+    );
 
 
 }

@@ -4,5 +4,7 @@
 var aos = angular.module('AOS');
 
 aos.controller('Ctrl_Main', ['$rootScope', function ($scope) {
-    $scope.section = 'projects'
+    $scope.section = 'projects';
+
+    $scope.user = null
 }]);

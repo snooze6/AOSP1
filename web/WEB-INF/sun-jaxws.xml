@@ -14,4 +14,8 @@
             name='Shop'
             implementation='org.arman.services.Shop'
             url-pattern='/services/Shop'/>
+    <endpoint
+            name='Auth'
+            implementation='org.arman.services.Auth'
+            url-pattern='/services/Auth'/>
 </endpoints>
