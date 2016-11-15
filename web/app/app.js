@@ -24,7 +24,7 @@ aos.config(['$routeProvider', function($routeProvider) {
     }).
     when('/projects/textanalyzer', {
         templateUrl: 'templates/textanalyzer.html',
-        controller: 'Ctrl_Text'
+        controller: 'Ctrl_Calc'
     }).
     when('/projects/shop', {
         templateUrl: 'templates/shop.html',

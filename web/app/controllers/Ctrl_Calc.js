@@ -12,14 +12,16 @@ aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function(
     $scope.history = [];
     $scope.end = false;
 
-
     function send () {
         function displayandsave(data) {
             $scope.result = data;
             console.log('Result '+$scope.result);
             $scope.history.push($scope.operation + ' = ' + $scope.result);
             $scope.end = true;
-            $scope.$apply();
+            // If not apply then avg not displayed
+            if (!((['MIN', 'AVG', 'MAX'].indexOf($scope.data.operation)) < 0))
+                $scope.$apply();
+            // $rootScope.$apply();
         }
         switch ($scope.data.operation) {
             case '+':

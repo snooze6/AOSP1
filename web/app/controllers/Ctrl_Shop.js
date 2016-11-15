@@ -4,9 +4,17 @@
 var aos = angular.module('AOS');
 
 aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', function($scope, $rootScope, factory){
+    console.log('Hello from Shop '+2);
+
+    function displayandsave(data) {
+        console.log(data)
+    }
+
+    $scope.carrito = [];
     $rootScope.section = 'projects';
-
-    console.log('Loaded Ctrl_Shop');
-
-    // $scope.carrito = factory.getItems();
+    factory.getItems().then(function (data, err) {
+        if (data){
+            $scope.carrito = data
+        }
+    });
 }]);
