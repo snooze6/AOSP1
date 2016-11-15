@@ -4,6 +4,8 @@ import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 import java.util.logging.Logger;
 
+import static org.arman.data.model.User.print;
+
 /**
  * Created by arman on 20/09/2016.
  */
@@ -12,27 +14,32 @@ public class Calculator {
   private static final Logger Console = Logger.getLogger( HelloWorld.class.getName() );
 
   @WebMethod
-  public float sum(float a, float b) {
+  public float sum(float a, float b, String token) {
+    print(token, "Adding "+a+"+"+b);
     return a+b;
   }
 
   @WebMethod
-  public float les(float a, float b){
+  public float les(float a, float b, String token){
+    print(token, "Subtracting "+a+"-"+b);
     return a-b;
   }
 
   @WebMethod
-  public float prod(float a, float b){
+  public float prod(float a, float b, String token){
+    print(token, "Multiply "+a+"*"+b);
     return a*b;
   }
 
   @WebMethod
-  public float div(float a, float b){
+  public float div(float a, float b, String token){
+    print(token, "Divide "+a+"/"+b);
     return a/b;
   }
 
   @WebMethod
-  public float min(float[] a){
+  public float min(float[] a, String token){
+    print(token, "Called min");
     if (a.length > 0) {
       float sum = a[0];
       for (float anA : a) {
@@ -47,11 +54,8 @@ public class Calculator {
   }
 
   @WebMethod
-  public float avg(float[] a){
-    Console.warning("Called - Avg: ");
-    for (float anA : a){
-      Console.warning(""+anA);
-    }
+  public float avg(float[] a, String token){
+    print(token, "Called avg");
     float sum = 0;
     for (float anA : a) {
       sum += anA;
@@ -62,13 +66,10 @@ public class Calculator {
       return 0;
     }
   }
-  @WebMethod
-  public float[] aavg(){
-    return new float[]{1,2,3};
-  }
 
   @WebMethod
-  public float max(float[] a){
+  public float max(float[] a, String token){
+    print(token, "Called max");
     if (a.length > 0) {
       float sum = a[0];
       for (float anA : a) {
@@ -80,13 +81,5 @@ public class Calculator {
     } else {
       return 0;
     }
-  }
-
-  public static void main(String[] argv) {
-    Object implementor = new Calculator();
-    String address = "http://localhost:8080/org.arman.services/Calculator";
-    System.out.println("Listening in on port");
-    System.out.println(" - "+address);
-    Endpoint.publish(address, implementor);
   }
 }

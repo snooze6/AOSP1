@@ -1,6 +1,8 @@
 # Boletín 1
 
-Este war incluirá todos los ejercicios del primer boletín usando para todos ellos soap y javascript
+Este war incluirá todos los ejercicios del primer boletín usando para todos ellos soap y javascript.
+
+La página tiene un bug gracioso al cambiar de divisa muchas veces el precio por redondeo tiende a la baja.
 
 ## [1.1] Calculadora
 
@@ -27,7 +29,7 @@ Este war incluirá todos los ejercicios del primer boletín usando para todos el
 |Creación del servicio de conversión de monedas   |2   |100%   |
 |Creación del cliente del servicio de conversión de monedas   |1.5   | 100%  |
 |Creación del cliente de cálculo de caracteres   | 1.5  | 100%  |
-|Inclusión del servicio de conversión en la tienda virtual   |2   |0%   |
+|Inclusión del servicio de conversión en la tienda virtual   |2   |100%   |
 |Inclusión de la utilidad de comprobación de caracteres en la tienda virtual   |2   |0%   |
 |Implementación del cliente Java de prueba   |1   |?%   |
 
@@ -88,9 +90,9 @@ Clientes:
 |---|---|---|
 |Visualización de los mensajes SOAP de invocación y respuesta   | 2  |0%   |
 |Manejador SOAP asociado al cliente que envía el mensaje   | 4  |0%   |
-|Manejador SOAP asociado al proveedor que recibe el mensaje   |1.5   |0%   |
-|Implementación sobre los clientes/proveedores del ejercicio 1.1   |1.5   |0%   |
-|Implementación sobre los clientes/proveedores del ejercicio 1.3   |1   |0%   |
+|Manejador SOAP asociado al proveedor que recibe el mensaje   |1.5   |100%   |
+|Implementación sobre los clientes/proveedores del ejercicio 1.1   |1.5   |100%   |
+|Implementación sobre los clientes/proveedores del ejercicio 1.3   |1   |100%   |
 
 - Visualización de mensajes SOAP:
     - Instalar SOAPui
@@ -98,8 +100,8 @@ Clientes:
     - Captura de pantalla que muestra tanto los mensajes SOAP como las respuestas de las operaciones invocadas
 - <span style="color:red"> Información adicional del mensaje SOAP </span>
     - El cliente debe incluir en el mensaje SOAP un texto que identifique el nombre del cliente que solicita la invocación del mensaje
-    - El proveedor deberá mostrar por pantalla el identificador del cliente que envía el mensaje
-- Servicios web
-    - Los servicios web que incluirán los manejadores SOAP serán los de los ejercicios 1.1 y 1.3
+    - ~~El proveedor deberá mostrar por pantalla el identificador del cliente que envía el mensaje~~
+- ~~Servicios web~~
+    - ~~Los servicios web que incluirán los manejadores SOAP serán los de los ejercicios 1.1 y 1.3~~
 
 

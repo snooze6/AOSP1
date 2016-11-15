@@ -8,6 +8,8 @@ import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 import java.util.ArrayList;
 
+import static org.arman.data.model.User.print;
+
 /**
  * Created by Snooze on 15/11/2016.
  */
@@ -15,12 +17,15 @@ import java.util.ArrayList;
 public class Shop {
 
     @WebMethod
-    public Item[] getItems(){
+    public Item[] getItems(String token){
+        print(token, "getting Items");
         return Dummy.items;
     }
 
     @WebMethod
-    public Item getItemId(int id){
+    public Item getItemId(int id, String token){
+        print(token, "getting Item "+id);
+
         for (Item i: Dummy.items){
             if (i.id == id){
                 return i;
@@ -31,7 +36,8 @@ public class Shop {
 
     @WebMethod
     public Item[] getItemAutor(String autor){
-        System.out.println("getItems: "+autor);
+        System.out.println("getting Item by autor "+autor);
+
         ArrayList<Item> ret = new ArrayList<>();
         for (Item i: Dummy.items){
             if (i.autor.toLowerCase().contains(autor)){
@@ -44,13 +50,5 @@ public class Shop {
             j++;
         }
         return ret1;
-    }
-
-    public static void main(String[] argv) {
-        Object implementor = new Shop();
-        String address = "http://localhost:8080/org.arman.services/Shop";
-        System.out.println("Listening in on port");
-        System.out.println(" - "+address);
-        Endpoint.publish(address, implementor);
     }
 }

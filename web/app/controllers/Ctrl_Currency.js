@@ -38,7 +38,7 @@ aos.controller('Ctrl_Currency',['$scope','$rootScope', 'Fact_Utils', function($s
             factory.change(n,i,j).then(function (data) {
                 if (data){
                     if (Array.isArray(data)){
-                        console.log('Array');
+                        // console.log('Array');
                         $scope.data = [];
                         for (var w in data){
                             $scope.data.push({
@@ -50,7 +50,7 @@ aos.controller('Ctrl_Currency',['$scope','$rootScope', 'Fact_Utils', function($s
                         }
 
                     } else {
-                        console.log('Not array');
+                        // console.log('Not array');
                         $scope.data = [];
                         $scope.data.push({
                             amount1: n[0],

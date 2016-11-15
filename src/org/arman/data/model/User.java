@@ -4,6 +4,9 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Objects;
+
+import static org.arman.data.model.Dummy.users;
 
 /**
  * Created by arman on 15/11/2016.
@@ -35,6 +38,19 @@ public class User {
             return "";
         }
 
+    }
+
+    public static void print(String token, String msg){
+        boolean ret = true;
+        for (User u: users){
+            if (Objects.equals(u.token, token)){
+                ret = false;
+                System.out.printf("["+u.token+"] "+msg);
+            }
+        }
+        if (ret) {
+            System.out.printf("[Anonymous] "+msg);
+        }
     }
 
 

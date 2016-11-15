@@ -4,10 +4,10 @@ import org.arman.data.model.User;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-import java.util.ArrayList;
 import java.util.Objects;
 
 import static org.arman.data.model.Dummy.users;
+import static org.arman.data.model.User.print;
 
 /**
  * Created by Snooze on 15/11/2016.
@@ -42,6 +42,7 @@ public class Auth {
     public  String login(String username, String password){
         User a = new User(username, password);
         String token = getToken(a);
+        print("", "Tried to login with <"+username+":"+password+">");
         if (token != null){
             return token;
         } else {
@@ -53,6 +54,7 @@ public class Auth {
     public String register(String username, String password){
         User a = new User(username, password);
         String token = getToken(a);
+        print("", "Tried to login with <"+username+":"+password+">");
         if (token != null){
             return "";
         } else {
@@ -63,6 +65,7 @@ public class Auth {
 
     @WebMethod
     public boolean valid(String token){
+        print(token, "Tried to login verify");
         for (User u: users){
             if (Objects.equals(u.token, token)){
                 return true;

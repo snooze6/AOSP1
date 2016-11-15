@@ -7,6 +7,17 @@
             </button>
         </span>
     </div>
+    <br>
+    <div class="form-group">
+        <div class="row">
+            <center>
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-class="{'active':radioModel === 0}" ng-click="changeModel(0)">$ to €</label>
+                    <label class="btn btn-primary" ng-class="{'active':radioModel === 1}" ng-click="changeModel(1)">€ to $</label>
+                </div>
+            </center>
+        </div>
+    </div>
 </div>
 
 <!--<p style="color: #0f0f0f">-->
@@ -19,108 +30,10 @@
         <div class="thumbnail">
             <img ng-src="{{item.image}}" alt="">
             <div class="caption">
-                <h4 class="pull-right">{{item.price}}</h4>
+                <h4 class="pull-right">{{item.price}}{{unit}}</h4>
                 <h4><a href="#/projects/shop/products/{{item.id}}">{{item.name}}</a></h4>
-                <!--<p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>-->
+                <p>{{item.autor}}</p>
             </div>
-            <!--<div class="ratings">-->
-                <!--<p class="pull-right">15 reviews</p>-->
-                <!--<p>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                <!--</p>-->
-            <!--</div>-->
         </div>
     </div>
 </div>
-
-    <!--<div class="col-sm-4 col-lg-4 col-md-4">-->
-        <!--<div class="thumbnail">-->
-            <!--<img src="imgs/bird.jpg" alt="">-->
-            <!--<div class="caption">-->
-                <!--<h4 class="pull-right">$64.99</h4>-->
-                <!--<h4><a href="#">Second Product</a>-->
-                <!--</h4>-->
-                <!--<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
-            <!--</div>-->
-            <!--<div class="ratings">-->
-                <!--<p class="pull-right">12 reviews</p>-->
-                <!--<p>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star-empty"></span>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="col-sm-4 col-lg-4 col-md-4">-->
-        <!--<div class="thumbnail">-->
-            <!--<img src="imgs/bird.jpg" alt="">-->
-            <!--<div class="caption">-->
-                <!--<h4 class="pull-right">$74.99</h4>-->
-                <!--<h4><a href="#">Third Product</a>-->
-                <!--</h4>-->
-                <!--<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
-            <!--</div>-->
-            <!--<div class="ratings">-->
-                <!--<p class="pull-right">31 reviews</p>-->
-                <!--<p>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star-empty"></span>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="col-sm-4 col-lg-4 col-md-4">-->
-        <!--<div class="thumbnail">-->
-            <!--<img src="imgs/bird.jpg" alt="">-->
-            <!--<div class="caption">-->
-                <!--<h4 class="pull-right">$84.99</h4>-->
-                <!--<h4><a href="#">Fourth Product</a>-->
-                <!--</h4>-->
-                <!--<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
-            <!--</div>-->
-            <!--<div class="ratings">-->
-                <!--<p class="pull-right">6 reviews</p>-->
-                <!--<p>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star-empty"></span>-->
-                    <!--<span class="glyphicon glyphicon-star-empty"></span>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="col-sm-4 col-lg-4 col-md-4">-->
-        <!--<div class="thumbnail">-->
-            <!--<img src="imgs/bird.jpg" alt="">-->
-            <!--<div class="caption">-->
-                <!--<h4 class="pull-right">$94.99</h4>-->
-                <!--<h4><a href="#">Fifth Product</a>-->
-                <!--</h4>-->
-                <!--<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
-            <!--</div>-->
-            <!--<div class="ratings">-->
-                <!--<p class="pull-right">18 reviews</p>-->
-                <!--<p>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star"></span>-->
-                    <!--<span class="glyphicon glyphicon-star-empty"></span>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
