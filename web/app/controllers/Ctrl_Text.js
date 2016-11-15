@@ -9,7 +9,7 @@ aos.controller('Ctrl_Text',['$scope','$rootScope', 'Fact_Utils', function($scope
     $scope.analyze = function () {
         // console.log('Analyzing...');
         if ($scope.string && $scope.string.length>0) {
-            factory.stats($scope.string, $scope.word).then(
+            factory.stats($scope.string, $scope.word, $rootScope.user.token).then(
                 function (data) {
                     if (! $scope.data){
                         $scope.data = {}

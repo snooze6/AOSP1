@@ -23,25 +23,25 @@ aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function(
         }
         switch ($scope.data.operation) {
             case '+':
-                factory.suma(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
+                factory.suma(parseFloat($scope.data.num1), parseFloat($scope.data.num2), $rootScope.user.token).then(displayandsave);
                 break;
             case '-':
-                factory.resta(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
+                factory.resta(parseFloat($scope.data.num1), parseFloat($scope.data.num2), $rootScope.user.token).then(displayandsave);
                 break;
             case '*':
-                factory.multiplicacion(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
+                factory.multiplicacion(parseFloat($scope.data.num1), parseFloat($scope.data.num2), $rootScope.user.token).then(displayandsave);
                 break;
             case '/':
-                factory.division(parseFloat($scope.data.num1), parseFloat($scope.data.num2)).then(displayandsave);
+                factory.division(parseFloat($scope.data.num1), parseFloat($scope.data.num2), $rootScope.user.token).then(displayandsave);
                 break;
             case 'MIN':
-                factory.minimo($scope.data.numbers).then(displayandsave);
+                factory.minimo($scope.data.numbers, $rootScope.user.token).then(displayandsave);
                 break;
             case 'AVG':
-                factory.media($scope.data.numbers).then(displayandsave);
+                factory.media($scope.data.numbers, $rootScope.user.token).then(displayandsave);
                 break;
             case 'MAX':
-                factory.maximo($scope.data.numbers).then(displayandsave);
+                factory.maximo($scope.data.numbers, $rootScope.user.token).then(displayandsave);
                 break;
             default:
                 console.log('Invalid operation')

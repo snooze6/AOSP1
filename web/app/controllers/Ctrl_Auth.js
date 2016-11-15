@@ -8,7 +8,7 @@ aos.controller('Ctrl_Auth',['$scope','$rootScope', 'Fact_Auth', function($scope,
     $rootScope.section = 'auth';
 
     $scope.login = function () {
-        factory.login($scope.user.username, $scope.user.password).then(function (data) {
+        factory.login($scope.user.username, $scope.user.password, $rootScope.user.token).then(function (data) {
             if (data){
                 console.log(data);
                 $rootScope.user.token = data
@@ -17,7 +17,7 @@ aos.controller('Ctrl_Auth',['$scope','$rootScope', 'Fact_Auth', function($scope,
     };
 
     $scope.register = function () {
-        factory.register($scope.user.username, $scope.user.password).then(function (data) {
+        factory.register($scope.user.username, $scope.user.password, $rootScope.user.token).then(function (data) {
             if (data){
                 console.log(data);
                 $rootScope.user.token = data

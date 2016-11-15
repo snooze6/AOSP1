@@ -89,7 +89,7 @@ Clientes:
 |Ítem   |Puntuación   | Completado  |
 |---|---|---|
 |Visualización de los mensajes SOAP de invocación y respuesta   | 2  |0%   |
-|Manejador SOAP asociado al cliente que envía el mensaje   | 4  |0%   |
+|Manejador SOAP asociado al cliente que envía el mensaje   | 4  |100%   |
 |Manejador SOAP asociado al proveedor que recibe el mensaje   |1.5   |100%   |
 |Implementación sobre los clientes/proveedores del ejercicio 1.1   |1.5   |100%   |
 |Implementación sobre los clientes/proveedores del ejercicio 1.3   |1   |100%   |
@@ -98,8 +98,8 @@ Clientes:
     - Instalar SOAPui
     - Testear los servicios 1.1 y 1.2 creando 2 mensajes SOAP para cada uno de los servicios web
     - Captura de pantalla que muestra tanto los mensajes SOAP como las respuestas de las operaciones invocadas
-- <span style="color:red"> Información adicional del mensaje SOAP </span>
-    - El cliente debe incluir en el mensaje SOAP un texto que identifique el nombre del cliente que solicita la invocación del mensaje
+- ~~<span style="color:red"> Información adicional del mensaje SOAP </span>~~
+    - ~~El cliente debe incluir en el mensaje SOAP un texto que identifique el nombre del cliente que solicita la invocación del mensaje~~
     - ~~El proveedor deberá mostrar por pantalla el identificador del cliente que envía el mensaje~~
 - ~~Servicios web~~
     - ~~Los servicios web que incluirán los manejadores SOAP serán los de los ejercicios 1.1 y 1.3~~

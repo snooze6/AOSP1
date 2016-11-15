@@ -26,43 +26,64 @@ function parseItems(items){
 // var baseUrl = 'http://localhost:8080/';
 aos.factory('Fact_Calculadora', [ '$soap', function ($soap) {
     return {
-        hello: function(){
-            return $soap.post(baseUrl+"services/HelloWorld","hello");
+        suma: function(a,b, token){
+            if (token) {
+                return $soap.post(baseUrl + "services/Calculator", "sum", {arg0: a, arg1: b, arg2: token});
+            } else {
+                return $soap.post(baseUrl + "services/Calculator", "sum", {arg0: a, arg1: b});
+            }
         },
-        suma: function(a,b){
-            // console.log(a+'+'+b+'='+(a+b));
-            return $soap.post(baseUrl+"services/Calculator", "sum", {arg0:a, arg1:b});
+        resta: function(a,b, token){
+            if (token) {
+                return $soap.post(baseUrl + "services/Calculator", "les", {arg0: a, arg1: b, arg2: token});
+            } else {
+                return $soap.post(baseUrl + "services/Calculator", "les", {arg0: a, arg1: b});
+            }
         },
-        resta: function(a,b){
-            // console.log(a+'-'+b+'='+(a+b));
-            return $soap.post(baseUrl+"services/Calculator", "les", {arg0:a, arg1:b});
+        multiplicacion: function(a,b, token){
+            if (token) {
+                return $soap.post(baseUrl + "services/Calculator", "prod", {arg0: a, arg1: b, arg2: token});
+            } else {
+                return $soap.post(baseUrl + "services/Calculator", "prod", {arg0: a, arg1: b});
+            }
         },
-        multiplicacion: function(a,b){
-            // console.log(a+'*'+b+'='+(a+b));
-            return $soap.post(baseUrl+"services/Calculator", "prod", {arg0:a, arg1:b});
+        division: function(a,b, token){
+            if (token) {
+                return $soap.post(baseUrl + "services/Calculator", "div", {arg0: a, arg1: b, arg2: token});
+            } else {
+                return $soap.post(baseUrl + "services/Calculator", "div", {arg0: a, arg1: b});
+            }
         },
-        division: function(a,b){
-            // console.log(a+'/'+b+'='+(a+b));
-            return $soap.post(baseUrl+"services/Calculator", "div", {arg0:a, arg1:b});
-        },
-        media: function (items) {
+        media: function (items, token) {
             return parseItems(items).then(
                 function (sendata) {
-                    return $soap.post(baseUrl+"services/Calculator", "avg", {arg0: sendata});
+                    if (token) {
+                        return $soap.post(baseUrl + "services/Calculator", "avg", {arg0: sendata, arg1: token});
+                    } else {
+                        return $soap.post(baseUrl + "services/Calculator", "avg", {arg0: sendata});
+                    }
                 }
             )
         },
-        minimo: function (items) {
+        minimo: function (items, token) {
             return parseItems(items).then(
                 function (sendata) {
-                    return $soap.post(baseUrl+"services/Calculator", "min", {arg0: sendata});
+                    if (token) {
+                        return $soap.post(baseUrl + "services/Calculator", "min", {arg0: sendata, arg1: token});
+                    } else {
+                        return $soap.post(baseUrl + "services/Calculator", "min", {arg0: sendata});
+                    }
                 }
             );
         },
-        maximo: function (items) {
+        maximo: function (items, token) {
             return parseItems(items).then(
                 function (sendata) {
-                    return $soap.post(baseUrl+"services/Calculator", "max", {arg0: sendata});
+                    if (token) {
+                        return $soap.post(baseUrl + "services/Calculator", "max", {arg0: sendata, arg1: token});
+                    } else {
+                        return $soap.post(baseUrl + "services/Calculator", "max", {arg0: sendata});
+                    }
                 }
             );
         }

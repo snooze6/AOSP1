@@ -45,7 +45,7 @@ public class User {
         for (User u: users){
             if (Objects.equals(u.token, token)){
                 ret = false;
-                System.out.printf("["+u.token+"] "+msg);
+                System.out.printf("["+u.username+"] "+msg);
             }
         }
         if (ret) {

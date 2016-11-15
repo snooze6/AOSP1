@@ -30,12 +30,7 @@ aos.controller('Ctrl_Currency',['$scope','$rootScope', 'Fact_Utils', function($s
             } else {
                 j = ""+'\u20ac'; i = "$"
             }
-            console.log(i+' - '+j);
-            // factory.change(n,i,j).onerror(function (err) {
-            //     console.log('Error');
-            //     console.log(err)
-            // });
-            factory.change(n,i,j).then(function (data) {
+            factory.change(n,i,j, $rootScope.user.token).then(function (data) {
                 if (data){
                     if (Array.isArray(data)){
                         // console.log('Array');

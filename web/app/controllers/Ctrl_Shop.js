@@ -4,6 +4,10 @@
 var aos = angular.module('AOS');
 
 aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', 'Fact_Utils', function($scope, $rootScope, factory, utils){
+    if (!$scope.user.token){
+
+    }
+
     $scope.carrito = [];
 
     $scope.searchdata = {};
@@ -23,7 +27,7 @@ aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', 'Fact_Utils', fu
             j = ""+'$';
         }
 
-        utils.change(n,i,j).then(function (data) {
+        utils.change(n,i,j, $rootScope.user.token).then(function (data) {
             if (data){
                 if (Array.isArray(data)){
                     // console.log('Array');
@@ -53,7 +57,7 @@ aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', 'Fact_Utils', fu
     };
     $scope.unit = ""+'\u20ac';
 
-    factory.getItems().then(function (data, err) {
+    factory.getItems($rootScope.user.token).then(function (data, err) {
         if (data){
             $scope.carrito = data
         }
@@ -62,7 +66,7 @@ aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', 'Fact_Utils', fu
     $scope.search = function(){
         if ($scope.searchdata.str){
             // console.log('Searching for '+$scope.searchdata.str);
-            factory.searchItem($scope.searchdata.str).then(function (data, err) {
+            factory.searchItem($scope.searchdata.str, $rootScope.user.token).then(function (data, err) {
                 if (data){
                     if (Array.isArray(data)) {
                         $scope.carrito = data;
@@ -82,7 +86,7 @@ aos.controller('Ctrl_Shop_Item',['$scope','$rootScope', '$routeParams', 'Fact_Sh
     // console.log('Hello from Item '+$routeParams.pId);
 
     var item = parseInt($routeParams.pId);
-    factory.getItem(item).then(function (data, err) {
+    factory.getItem(item, $rootScope.user.token).then(function (data, err) {
         if (data){
             $scope.item = data
         }
