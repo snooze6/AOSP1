@@ -4,8 +4,6 @@
 var aos = angular.module('AOS');
 
 aos.controller('Ctrl_Calc',['$scope','$rootScope', 'Fact_Calculadora', function($scope, $rootScope, factory){
-    $rootScope.section = 'projects';
-
     $scope.data = {num1: 0, num2:'', operation: '', numbers:[]};
     $scope.operation = $scope.data.num1 + ' ' + $scope.data.operation + ' ' + $scope.data.num2;
     $scope.result = 0;

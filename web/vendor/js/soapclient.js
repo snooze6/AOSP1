@@ -206,31 +206,36 @@ SOAPClient._sendSoapRequest = function(url, method, parameters, async, callback,
 		return SOAPClient._onSendSoapRequest(method, async, callback, wsdl, xmlHttp);
 };
 
-SOAPClient._onSendSoapRequest = function(method, async, callback, wsdl, req) 
+// TODO Revert
+SOAPClient._onSendSoapRequest = function(method, async, callback, wsdl, req)
 {
 	var o = null;
 	var nd = SOAPClient._getElementsByTagName(req.responseXML, method + "Result");
-	if(nd.length == 0)
+
+	if (nd.length == 0)
 		nd = SOAPClient._getElementsByTagName(req.responseXML, "return");	// PHP web Service?
 
-	if(nd.length == 0) {
-		if(req.responseXML.getElementsByTagName("faultcode").length > 0)
-		{
-		    if(async || callback)
-		        o = new Error(500, req.responseXML.getElementsByTagName("faultstring")[0].childNodes[0].nodeValue);
+	if (nd.length == 0) {
+		if (req.responseXML.getElementsByTagName("faultcode").length > 0) {
+			if (async || callback)
+				o = new Error(500, req.responseXML.getElementsByTagName("faultstring")[0].childNodes[0].nodeValue);
 			else
-			    throw new Error(500, req.responseXML.getElementsByTagName("faultstring")[0].childNodes[0].nodeValue);			
+				throw new Error(500, req.responseXML.getElementsByTagName("faultstring")[0].childNodes[0].nodeValue);
 		}
 	} else {
-		if (nd.length > 1){
+		if (nd.length > 1) {
 			o = [];
-			for (var i = 0; i<nd.length; i++){
+			for (var i = 0; i < nd.length; i++) {
 				var aux = SOAPClient._soapresult2object(nd[i], wsdl);
 				o.push(aux)
 			}
 		} else {
 			o = SOAPClient._soapresult2object(nd[0], wsdl);
 		}
+	}
+
+	if (o == null){
+		o = {}
 	}
 	if(callback)
 		callback(o, req.responseXML);

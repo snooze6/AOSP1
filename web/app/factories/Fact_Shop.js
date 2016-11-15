@@ -12,10 +12,11 @@ aos.factory('Fact_Shop', [ '$soap', function ($soap) {
             return $soap.post(baseUrl+"services/Shop", "getItems");
         },
         getItem: function (id) {
-            return $soap.post(baseUrl+"services/Shop", "getItemId", {arg0:id});
+            return $soap.post(baseUrl+"services/Shop", "getItemId", {arg0: id});
         },
         searchItem: function (autor) {
-            return $soap.post(baseUrl+"services/Shop", "getItemAutor", {arg0:autor});
+            console.log('Autor: '+autor);
+            return $soap.post(baseUrl+"services/Shop", "getItemAutor", {arg0: autor});
         }
     }
 }]);

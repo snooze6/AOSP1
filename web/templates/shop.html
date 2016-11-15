@@ -1,17 +1,18 @@
 <div class="row" style="padding: 1%; padding-left: 3%; padding-right: 2%">
     <div class="input-group col-md-12">
-        <input ng-model="search" type="text" class="search-query form-control" placeholder="Search"/>
-        <span class="input-group-btn">
-            <button class="btn btn-danger" type="button">
+        <input ng-model="searchdata.str" type="text" class="search-query form-control" placeholder="Search" style="width: 95%;"/>
+        <span class="input-group-btn" style="width: 10%">
+            <button class="btn btn-danger" type="button" ng-click="search()">
                 <span class=" glyphicon glyphicon-search"></span>
             </button>
         </span>
     </div>
 </div>
 
-<p>
-    {{search | json}}
-</p>
+<!--<p style="color: #0f0f0f">-->
+    <!--{{searchdata | json}} <br>-->
+    <!--{{carrito | json}}-->
+<!--</p>-->
 
 <div class="row">
     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="item in carrito">

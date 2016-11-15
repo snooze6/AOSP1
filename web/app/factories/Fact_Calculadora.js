@@ -6,7 +6,7 @@ var aos = angular.module('AOS');
 var baseUrl = '';
 function parseItems(items){
     return new Promise(function (fulfill, reject){
-        var ret = []
+        var ret = [];
         // var ret = {};
         for (i in items){
             ret.push(parseFloat(items[i]));
