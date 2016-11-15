@@ -18,4 +18,8 @@
             name='Auth'
             implementation='org.arman.services.Auth'
             url-pattern='/services/Auth'/>
+    <endpoint
+            name='Utils'
+            implementation='org.arman.services.Utils'
+            url-pattern='/services/Utils'/>
 </endpoints>
