@@ -9,6 +9,15 @@ var aos = angular.module('AOS', [
 ]);
 
 aos.config(['$routeProvider', function($routeProvider) {
+    var checkLogin = function ($q, $rootScope, $location) {
+        var deferred = $q.defer();
+        deferred.resolve();
+        if (!$rootScope.user.token) {
+            $location.path('/auth');
+        }
+        return deferred.promise;
+    };
+
     $routeProvider.
     when('/projects', {
         templateUrl: 'templates/projects.html',
@@ -32,11 +41,17 @@ aos.config(['$routeProvider', function($routeProvider) {
     }).
     when('/projects/shop', {
         templateUrl: 'templates/shop.html',
-        controller: 'Ctrl_Shop'
+        controller: 'Ctrl_Shop',
+        resolve: {
+            factory: checkLogin
+        }
     }).
     when('/projects/shop/products/:pId', {
         templateUrl: 'templates/item.html',
-        controller: 'Ctrl_Shop_Item'
+        controller: 'Ctrl_Shop_Item',
+        resolve: {
+            factory: checkLogin
+        }
     }).
     when('/auth', {
         templateUrl: 'templates/auth.html',
@@ -46,4 +61,5 @@ aos.config(['$routeProvider', function($routeProvider) {
         redirectTo: '/projects'
     });
 }]);
+
 

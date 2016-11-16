@@ -4,9 +4,6 @@
 var aos = angular.module('AOS');
 
 aos.controller('Ctrl_Shop',['$scope','$rootScope', 'Fact_Shop', 'Fact_Utils', function($scope, $rootScope, factory, utils){
-    if (!$scope.user.token){
-
-    }
 
     $scope.carrito = [];
 

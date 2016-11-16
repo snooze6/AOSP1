@@ -64,7 +64,7 @@ public class Auth {
     }
 
     @WebMethod
-    public boolean valid(String token){
+    public boolean validate(String token){
         print(token, "Tried to login verify");
         for (User u: users){
             if (Objects.equals(u.token, token)){

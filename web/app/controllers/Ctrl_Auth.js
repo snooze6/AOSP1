@@ -3,7 +3,7 @@
  */
 var aos = angular.module('AOS');
 
-aos.controller('Ctrl_Auth',['$scope','$rootScope', 'Fact_Auth', function($scope, $rootScope, factory){
+aos.controller('Ctrl_Auth',['$scope','$rootScope', 'Fact_Auth', '$location', 'Fact_Utils', function($scope, $rootScope, factory, $location, utils){
 
     $rootScope.section = 'auth';
 
@@ -11,16 +11,26 @@ aos.controller('Ctrl_Auth',['$scope','$rootScope', 'Fact_Auth', function($scope,
         factory.login($scope.user.username, $scope.user.password, $rootScope.user.token).then(function (data) {
             if (data){
                 console.log(data);
-                $rootScope.user.token = data
+                $rootScope.user.token = data;
+                $location.path('/');
+                // console.log($location)
             }
         })
     };
 
     $scope.register = function () {
-        factory.register($scope.user.username, $scope.user.password, $rootScope.user.token).then(function (data) {
-            if (data){
-                console.log(data);
-                $rootScope.user.token = data
+        utils.length($scope.user.password).then(function (data) {
+            if (data && data >= 8) {
+                factory.register($scope.user.username, $scope.user.password, $rootScope.user.token).then(function (data) {
+                    if (data) {
+                        console.log(data);
+                        $rootScope.user.token = data;
+                        $location.path('/');
+                        // console.log($location)
+                    }
+                })
+            } else {
+                alert('Porfavor introduzca una contrasea de al menos 8 caracteres')
             }
         })
     };

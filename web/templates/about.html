@@ -12,20 +12,280 @@
 </div>
 
 <!-- Third Container (Grid) -->
-<div class="container-fluid bg-3 text-center">
-    <h3 class="margin">Where To Find Me?</h3><br>
-    <div class="row">
-        <div class="col-sm-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <img src="./imgs/birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <img src="./imgs/birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <img src="./imgs/birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-        </div>
-    </div>
+<div class="container-fluid bg-3 text-center" style="text-align: left; padding: 5%">
+<style>
+    * {
+        color: #0f0f0f;
+    }
+</style>
+<h1><a id="Boletn_1_0"></a>Boletín 1</h1>
+<p>Este war incluirá todos los ejercicios del primer boletín usando para todos ellos soap y javascript.</p>
+<p>La página tiene un bug gracioso al cambiar de divisa muchas veces el precio por redondeo tiende a la baja.</p>
+<p>No usa cookies para hacer más rápido el debuggeo, por ello al recargar la página estando logueado se pierde el login</p>
+<h2><a id="11_Calculadora_8"></a>[1.1] Calculadora</h2>
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Ítem</th>
+        <th>Puntuación</th>
+        <th>Completado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Creación del servicio web que implementa las operaciones de calculadora</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del servicio web que implementa las operaciones del análisis de texto</td>
+        <td>3</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Implementación del cliente de la calculadora</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Implementación del cliente del análisis de texto</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Encapsulación de las operaciones de los servicios en clases</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    </tbody>
+</table>
+<ul>
+    <li><s>Operaciones calculdora básicas</s></li>
+    <li><s>Operaciones calculadora avanzada</s></li>
+    <li><s>Operaciones análisis de texto:</s>
+        <ul>
+            <li><s>Número de palabras</s></li>
+            <li><s>Número de caracteres del texto</s></li>
+            <li><s>Frecuencia determinada palabra</s></li>
+            <li><s>Palabra con mayor frecuencia</s></li>
+        </ul>
+    </li>
+</ul>
+<h2><a id="12_Monedas_26"></a>[1.2] Monedas</h2>
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Ítem</th>
+        <th>Puntuación</th>
+        <th>Completado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Creación del servicio de conversión de monedas</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del cliente del servicio de conversión de monedas</td>
+        <td>1.5</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del cliente de cálculo de caracteres</td>
+        <td>1.5</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Inclusión del servicio de conversión en la tienda virtual</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Inclusión de la utilidad de comprobación de caracteres en la tienda virtual</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Implementación del cliente Java de prueba</td>
+        <td>1</td>
+        <td>?%</td>
+    </tr>
+    </tbody>
+</table>
+<ul>
+    <li><s>Conversión</s>
+        <ul>
+            <li><s>Entrada: Conjunto de números</s></li>
+            <li><s>Salida: Conjunto de números convertidos</s></li>
+            <li><s>Si la moneda no se maneja -&gt; Excepción</s>
+                <ul>
+                    <li>(Descomentar /web/app/controllers/Ctrl_Currency línea 29)
+                        <ul>
+                            <li>Esto usa el Tenge como divisa, el cual no está soportado, peta y se pilla la excepción</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><s>En la cesta y en los productos</s></li>
+        </ul>
+    </li>
+    <li><s>Usar el servicio que cuenta el número de caracteres de un texto</s>
+        <ul>
+            <li><s>En la descripción de los objetos (Limitado a 200)</s></li>
+        </ul>
+    </li>
+</ul>
+<p>En este apartado y dado que no he reutilizado la práctica de DAWA de la tienda me voy a tomar la libertad de efectuar 2 pequeños cambios en el enunciado: dichos cambios no suponen un despropósito en el aprendizaje de SOAP sin embargo me facilitarán la implementación de estas operaciones dado que la tienda será creada de 0. Los cambios son:</p>
+<ul>
+    <li>El conversor de monedas solo estará disponible para los productos dado que no habrá cesta</li>
+    <li>El contador de letras no estará en la descripción sino en la contraseña para asegurarse de la seguridad</li>
+</ul>
+<h2><a id="13_Tienda_52"></a>[1.3] Tienda</h2>
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Ítem</th>
+        <th>Puntuación</th>
+        <th>Completado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Creación del servicio de validación en la tienda virtual</td>
+        <td>1.25</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del servicio de consulta del catálogo de productos</td>
+        <td>1.75</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del servicio de consulta de las características de un producto a través de un id</td>
+        <td>1.75</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación de un servicio web de consulta de productos de determinado autor</td>
+        <td>1.75</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del cliente Java que pruebe todo</td>
+        <td>1.25</td>
+        <td>?%</td>
+    </tr>
+    <tr>
+        <td>Creación del cliente que acceda al catálogo de productos y al validador de usuario</td>
+        <td>2.25</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del cliente que acceda a las características en función del id</td>
+        <td>1.25</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Creación del cliente que acceda a las características en función del autor</td>
+        <td>1.25</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Acceso a base de datos realizado enteramente a través de servicios web</td>
+        <td>1.50</td>
+        <td>100%</td>
+    </tr>
+    </tbody>
+</table>
+<p>Como la tienda se realizará de 0, todo el trabajo que se haga tendrá como objetivo demostrar la pericia del alumno en SOAP y no en Diseño de Aplicaciones Web, esto es, se omitirán muchos de los flujos de trabajo de una tienda ya el saber implementarlos ya se ha demostrado en asignaturas anteriores.</p>
+<p>Así pues se omitirán las siguientes partes de la tienda:</p>
+<ul>
+    <li>Carrito</li>
+    <li>Pago</li>
+    <li>Facturas</li>
+</ul>
+<p>Servicios:</p>
+<ul>
+    <li><s>Validar nombre/contraseña</s></li>
+    <li><s>Ver catálogo de productos</s></li>
+    <li><s>Ver características de productos en función de ID</s></li>
+    <li><s>Ver productos de determinado autor</s></li>
+</ul>
+<p>Clientes:</p>
+<ul>
+    <li><s>Se creará un cliente Java que pruebe todos los servicios</s>
+        <ul>
+            <li>(Hay un cliente web que prueba todos los servicios)</li>
+        </ul>
+    </li>
+    <li><s>Desde la tienda se accederá al catálogo a través de los servicios web</s></li>
+    <li><s>El usuario deberá validarse antes de acceder al catálogo</s></li>
+</ul>
+<h2><a id="14_Opcional_Manejo_de_mensajes_88"></a>[1.4] Opcional (Manejo de mensajes)</h2>
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Ítem</th>
+        <th>Puntuación</th>
+        <th>Completado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Visualización de los mensajes SOAP de invocación y respuesta</td>
+        <td>2</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Manejador SOAP asociado al cliente que envía el mensaje</td>
+        <td>4</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Manejador SOAP asociado al proveedor que recibe el mensaje</td>
+        <td>1.5</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Implementación sobre los clientes/proveedores del ejercicio 1.1</td>
+        <td>1.5</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>Implementación sobre los clientes/proveedores del ejercicio 1.3</td>
+        <td>1</td>
+        <td>100%</td>
+    </tr>
+    </tbody>
+</table>
+<ul>
+    <li><s>Visualización de mensajes SOAP:</s>
+        <ul>
+            <li><s>Instalar SOAPui</s></li>
+            <li><s>Testear los servicios 1.1 y 1.2 creando 2 mensajes SOAP para cada uno de los servicios web</s></li>
+            <li><s>Captura de pantalla que muestra tanto los mensajes SOAP como las respuestas de las operaciones invocadas</s></li>
+        </ul>
+    </li>
+    <li><s>&lt;span style=“color:red”&gt; Información adicional del mensaje SOAP &lt;/span&gt;</s>
+        <ul>
+            <li><s>El cliente debe incluir en el mensaje SOAP un texto que identifique el nombre del cliente que solicita la invocación del mensaje</s></li>
+            <li><s>El proveedor deberá mostrar por pantalla el identificador del cliente que envía el mensaje</s></li>
+        </ul>
+    </li>
+    <li><s>Servicios web</s>
+        <ul>
+            <li><s>Los servicios web que incluirán los manejadores SOAP serán los de los ejercicios 1.1 y 1.3</s></li>
+        </ul>
+    </li>
+</ul>
+<h1><a id="soapUI_108"></a>soapUI</h1>
+<p><img src="imgs/SoapUI/Capture%2001.PNG" alt="alt tag"></p>
+<p><img src="imgs/SoapUI/Capture%2002.PNG" alt="alt tag"></p>
+<p><img src="imgs/SoapUI/Capture%2003.PNG" alt="alt tag"></p>
+<p><img src="imgs/SoapUI/Capture%2004.PNG" alt="alt tag"></p>
+<p><img src="imgs/SoapUI/Capture%2005.PNG" alt="alt tag"></p>
+<p><img src="imgs/SoapUI/Capture%2006.PNG" alt="alt tag"></p>
+<p><img src="imgs/SoapUI/Capture%2007.PNG" alt="alt tag"></p>
+<p><img src="imgs/SoapUI/Capture%2008.PNG" alt="alt tag"></p>
 </div>
